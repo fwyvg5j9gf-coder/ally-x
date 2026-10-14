@@ -33,9 +33,25 @@ directo y sin rodeos, de tú. El dueño juega en él; no es programador.
 instalador, con su valor original. `herramientas/revertir.ps1` lo deshace.
 Aplicado (si el módulo se corrió): modo juego, captura en fondo off, HAGS,
 optimizaciones de ventana + VRR, USB sin suspensión selectiva, sin red en
-suspensión con batería, hibernación e inicio rápido off, widgets / Copilot /
-Recall / anuncios off, DiagTrack off, teclado táctil automático.
+suspensión con batería, inicio rápido off, widgets / Copilot / Recall /
+anuncios off, DiagTrack off, teclado táctil automático.
+Módulo suspension: botón de encendido = suspender, sin temporizadores de
+activación en batería, ningún dispositivo puede despertar el equipo (lista
+original en `respaldo.json` → `despertar`), hibernación de respaldo a las 3 h
+suspendido en batería, y el agente **ally-pausa**.
 No dupliques esos ajustes ni los propongas como novedad.
+
+## suspender como consola (ally-pausa)
+
+- Tarea programada `\Ally\Ally Pausa`, corre `herramientas/ally-pausa.ps1`
+  oculto al iniciar sesión, con permisos elevados.
+- Al apagarse la pantalla anota el juego al frente y si el control está
+  presente; al prenderse (si estuvo apagada >5 s) reinicia el control si se
+  cayó y devuelve el juego al frente. Parámetros: `-Control si-falla|siempre|nunca`,
+  `-SinVolverAlJuego`.
+- Bitácora: `logs/pausa.log`. Reinicio manual del control:
+  `herramientas/arreglar-control.ps1`.
+- Para fallas de suspensión usa el comando `/suspension`.
 
 ## problemas típicos del Ally y por dónde ir
 

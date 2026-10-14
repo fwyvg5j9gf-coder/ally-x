@@ -36,8 +36,9 @@ if (-not (Test-Admin)) {
 }
 
 $descripcion = [ordered]@{
-  rendimiento = 'modo juego, GPU, captura en fondo apagada, energía del USB y suspensión'
+  rendimiento = 'modo juego, GPU, captura en fondo apagada, energía del USB'
   limpieza    = 'quita apps preinstaladas, widgets, Copilot, Recall, anuncios y telemetría opcional'
+  suspension  = 'suspender y regresar al juego como Switch: sin despertares, hibernación de respaldo, agente ally-pausa'
   handheld    = 'teclado táctil, hibernación, revisa Armoury Crate, BIOS y drivers'
   claude      = 'app Claude, Claude Code, Windows Terminal, carpeta ~\ally con comandos'
   apps        = 'Steam, Playnite y Heroic'
@@ -54,7 +55,7 @@ if ($desconocidos) {
 }
 
 if (-not $Modulos) {
-  $Modulos = @('rendimiento', 'limpieza', 'handheld', 'claude')
+  $Modulos = @('rendimiento', 'limpieza', 'suspension', 'handheld', 'claude')
   if ($Apps)     { $Modulos += 'apps' }
   if ($Agresivo) { $Modulos += 'agresivo' }
 }
@@ -89,7 +90,7 @@ try {
   }
 }
 
-$orden = @{ rendimiento = 10; limpieza = 20; handheld = 30; claude = 40; apps = 50; agresivo = 90 }
+$orden = @{ rendimiento = 10; limpieza = 20; suspension = 25; handheld = 30; claude = 40; apps = 50; agresivo = 90 }
 foreach ($m in ($Modulos | Sort-Object { $orden[$_] })) {
   $archivo = Get-ChildItem (Join-Path $PSScriptRoot 'modulos') -Filter "*-$m.ps1" | Select-Object -First 1
   try {

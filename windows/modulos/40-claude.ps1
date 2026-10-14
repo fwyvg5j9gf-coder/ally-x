@@ -39,7 +39,7 @@ New-Item -ItemType Directory -Force -Path $herrDir | Out-Null
 Copy-Item (Join-Path $PSScriptRoot '..\herramientas\*.ps1') $herrDir -Force
 Copy-Item (Join-Path $PSScriptRoot '..\revertir.ps1') $herrDir -Force
 Copy-Item (Join-Path $PSScriptRoot '..\lib') $script:AllyDir -Recurse -Force
-Ok 'CLAUDE.md, comandos (/diagnostico /bateria /juego /limpieza) y herramientas copiados'
+Ok 'CLAUDE.md, comandos (/diagnostico /bateria /juego /limpieza /suspension) y herramientas copiados'
 
 Paso 'claude: accesos directos'
 $menu = Join-Path ([Environment]::GetFolderPath('Programs')) 'Ally'

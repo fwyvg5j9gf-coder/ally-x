@@ -109,6 +109,17 @@ Write-Host 'revisando el Ally X...'
   Get-Volume | Where-Object DriveLetter | Select-Object DriveLetter, FileSystemLabel,
     @{n='LibreGB';e={[int]($_.SizeRemaining/1GB)}}, @{n='TotalGB';e={[int]($_.Size/1GB)}} | Tabla
 
+  Seccion 'suspensión'
+  "dispositivos que pueden despertarlo:"; powercfg /devicequery wake_armed | ForEach-Object { "  $_" }
+  "último despertar:"; powercfg /lastwake | ForEach-Object { "  $_" }
+  "temporizadores de activación:"; powercfg /waketimers | ForEach-Object { "  $_" }
+  "hibernar tras suspensión (seg, índice AC/DC):"
+  powercfg /q SCHEME_CURRENT SUB_SLEEP HIBERNATEIDLE | Select-String 'Index' | ForEach-Object { "  $($_.Line.Trim())" }
+  $tarea = Get-ScheduledTask -TaskName 'Ally Pausa' -TaskPath '\Ally\' -ErrorAction SilentlyContinue
+  "agente ally-pausa: $(if ($tarea) { $tarea.State } else { 'no instalado' })"
+  $pausaLog = Join-Path $ally 'logs\pausa.log'
+  if (Test-Path $pausaLog) { "últimas líneas de pausa.log:"; Get-Content $pausaLog -Tail 30 | ForEach-Object { "  $_" } }
+
   Seccion 'ally-x'
   $resp = Join-Path $ally 'respaldo.json'
   "respaldo de ajustes: $(if (Test-Path $resp) { $resp } else { 'no hay (instalar.ps1 no se ha corrido)' })"

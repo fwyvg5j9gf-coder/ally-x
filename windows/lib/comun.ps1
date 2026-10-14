@@ -3,7 +3,7 @@
 
 $script:AllyDir     = Join-Path $env:USERPROFILE 'ally'
 $script:RespaldoArc = Join-Path $script:AllyDir 'respaldo.json'
-$script:Respaldo    = [ordered]@{ registro = [ordered]@{}; servicios = [ordered]@{} }
+$script:Respaldo    = [ordered]@{ registro = [ordered]@{}; servicios = [ordered]@{}; despertar = @() }
 $script:Cambios     = 0
 
 function Paso($msg)  { Write-Host "`n==> $msg" -ForegroundColor Yellow }
@@ -22,6 +22,7 @@ function Abrir-Respaldo {
   $json = Get-Content $script:RespaldoArc -Raw -Encoding UTF8 | ConvertFrom-Json
   foreach ($p in $json.registro.PSObject.Properties)  { $script:Respaldo.registro[$p.Name]  = $p.Value }
   foreach ($p in $json.servicios.PSObject.Properties) { $script:Respaldo.servicios[$p.Name] = $p.Value }
+  if ($json.despertar) { $script:Respaldo.despertar = @($json.despertar) }
 }
 
 function Guardar-Respaldo {

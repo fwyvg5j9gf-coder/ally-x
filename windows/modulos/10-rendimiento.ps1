@@ -27,9 +27,4 @@ powercfg /change standby-timeout-dc 10
 powercfg /setactive SCHEME_CURRENT
 Ok 'USB sin suspensión selectiva, sin red en suspensión con batería, tiempos ajustados'
 
-Paso 'rendimiento: hibernación e inicio rápido'
-# El inicio rápido deja drivers a medio cargar; en el Ally causa controles muertos
-# y Wi-Fi que no regresa. Apagar hibernación también libera ~24 GB de disco.
-powercfg /hibernate off
-Set-Reg 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power' 'HiberbootEnabled' 0
-Ok 'hibernación e inicio rápido off'
+# Hibernación e inicio rápido los maneja el módulo suspension.

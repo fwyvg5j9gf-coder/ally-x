@@ -16,7 +16,7 @@ doble clic.
 Desde PowerShell también puedes elegir qué correr:
 
 ```powershell
-.\instalar.ps1                          # recomendados (rendimiento, limpieza, handheld, claude)
+.\instalar.ps1                          # recomendados (rendimiento, limpieza, suspension, handheld, claude)
 .\instalar.ps1 -Apps                    # + Steam, Playnite y Heroic
 .\instalar.ps1 -Agresivo                # + apaga VBS / Memory Integrity
 .\instalar.ps1 -Modulos claude,apps     # solo esos módulos
@@ -35,7 +35,6 @@ Desde PowerShell también puedes elegir qué correr:
 | Suspensión selectiva USB off | los controles del Ally van por USB interno; es la causa #1 de controles muertos tras suspender |
 | Sin red durante suspensión con batería | evita que se vacíe en la mochila |
 | Pantalla 3 min / suspender 10 min en batería | |
-| Hibernación e inicio rápido off | el inicio rápido deja drivers a medias (controles, Wi-Fi); libera ~24 GB |
 
 ### limpieza
 - Quita apps preinstaladas que no sirven en una portátil de juego: Clipchamp,
@@ -46,6 +45,26 @@ Desde PowerShell también puedes elegir qué correr:
   inicio, ID de publicidad y Bing en la búsqueda del inicio.
 - Edge sin precarga ni ejecución en segundo plano.
 - Telemetría al mínimo y servicios DiagTrack / dmwappushservice off.
+
+### suspension — suspender y regresar al juego como en Switch
+Presionas el botón de encendido, la pantalla se apaga, el juego se queda en
+pausa en memoria. Lo vuelves a presionar y estás de regreso en segundos.
+
+| ajuste | por qué |
+|---|---|
+| Botón de encendido = suspender | |
+| Ningún dispositivo puede despertarlo | botones del control, red o touch no lo prenden dentro de la mochila; solo el botón de encendido |
+| Sin temporizadores de activación en batería | Windows Update y tareas no lo despiertan |
+| Inicio rápido off | deja drivers a medias: controles muertos, Wi-Fi que no regresa |
+| Hibernación de respaldo a las 3 h | si lo dejas suspendido mucho tiempo, guarda el juego al SSD y se apaga; al encender regresas al mismo punto aunque pasen días. Es lo que evita perder la partida por batería |
+| Agente **ally-pausa** | al regresar revisa el control y lo reinicia si se cayó, y te devuelve al juego si quedó detrás de otra ventana |
+
+Además deja **Arreglar control** en el menú inicio, por si los botones dejan
+de responder en cualquier momento.
+
+**Límites honestos:** juegos en línea pierden la conexión mientras está
+suspendido (igual que en Switch), y algunos anti-cheat cierran el juego al
+regresar. Lo más seguro es pausar o ir al menú antes de suspender.
 
 ### handheld
 - Teclado táctil automático al tocar un campo de texto.
@@ -61,7 +80,7 @@ Desde PowerShell también puedes elegir qué correr:
   ally\
   ├── CLAUDE.md          # Claude sabe qué equipo es, qué ya se ajustó y qué no tocar
   ├── .claude\commands\  # comandos propios (abajo)
-  ├── herramientas\      # ally-doctor.ps1, revertir.ps1
+  ├── herramientas\      # ally-doctor, ally-pausa, arreglar-control, revertir
   ├── reportes\          # reportes HTML de batería y suspensión
   ├── logs\              # bitácora de cada instalación
   └── respaldo.json      # valores originales de todo lo que se cambió
@@ -89,6 +108,7 @@ Abre **Claude Code (Ally)** y usa los comandos:
 | `/bateria` | por qué se acaba la batería, jugando o suspendido |
 | `/juego elden ring batería` | receta de TDP, resolución, FPS y ajustes para ese juego |
 | `/limpieza` | qué sobra en segundo plano y qué conviene quitar |
+| `/suspension se murió el control al regresar` | revisa la bitácora de ally-pausa y los eventos y te dice qué pasó |
 
 O pregúntale normal: *"el control dejó de responder después de suspender"*,
 *"instálame Discord"*, *"¿por qué se calienta tanto con Hades?"*.

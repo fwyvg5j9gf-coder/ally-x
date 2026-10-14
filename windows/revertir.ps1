@@ -26,7 +26,7 @@ if (-not (Test-Path $script:RespaldoArc)) {
   exit 1
 }
 Abrir-Respaldo
-$n = $script:Respaldo.registro.Count + $script:Respaldo.servicios.Count
+$n = $script:Respaldo.registro.Count + $script:Respaldo.servicios.Count + @($script:Respaldo.despertar).Count
 Write-Host "se van a restaurar $n valores a como estaban antes de ally-x."
 if (-not $SinPreguntar -and (Read-Host '¿sigo? (s/n)') -notmatch '^[sSyY]') { exit }
 
@@ -53,6 +53,19 @@ foreach ($nombre in $script:Respaldo.servicios.Keys) {
   if ($inicio -eq 'Automatic') { Start-Service -Name $nombre -ErrorAction SilentlyContinue }
   Ok "$nombre → $inicio"
 }
+
+Paso 'suspensión'
+Unregister-ScheduledTask -TaskName 'Ally Pausa' -TaskPath '\Ally\' -Confirm:$false -ErrorAction SilentlyContinue
+Get-CimInstance Win32_Process -Filter "Name = 'powershell.exe'" -ErrorAction SilentlyContinue |
+  Where-Object CommandLine -match 'ally-pausa\.ps1' | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
+Ok 'agente ally-pausa detenido y quitado'
+foreach ($d in $script:Respaldo.despertar) {
+  powercfg /deviceenablewake "$d" 2>$null
+  Ok "puede despertar otra vez: $d"
+}
+$script:Respaldo.despertar = @()
+powercfg /setacvalueindex SCHEME_CURRENT SUB_SLEEP RTCWAKE 1
+powercfg /setdcvalueindex SCHEME_CURRENT SUB_SLEEP RTCWAKE 1
 
 Paso 'energía'
 powercfg /hibernate on
