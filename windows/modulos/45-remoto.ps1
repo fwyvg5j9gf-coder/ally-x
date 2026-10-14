@@ -1,7 +1,8 @@
-﻿# Claude remoto siempre disponible (incluido en la instalación recomendada): abre Claude Code en modo remoto al iniciar
-# sesión y lo reabre si se cae, para usarlo desde la app de Claude del celular.
-# Corre SIN permisos de administrador a propósito: lo que pidas desde fuera no
-# puede tocar el sistema sin que lo apruebes en pantalla.
+﻿# Claude remoto siempre disponible (incluido en la instalación recomendada):
+# abre Claude Code en modo remoto al iniciar sesión y lo reabre si se cae, para
+# usarlo desde la app de Claude del celular.
+# Corre SIN permisos de administrador a propósito: desde fuera no se pueden
+# cambiar registro del sistema, servicios ni energía.
 
 Paso 'remoto: Claude remoto al iniciar sesión'
 $script = Join-Path $script:AllyDir 'herramientas\claude-remoto.ps1'
