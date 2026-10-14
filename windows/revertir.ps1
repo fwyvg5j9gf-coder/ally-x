@@ -59,6 +59,8 @@ Unregister-ScheduledTask -TaskName 'Ally Pausa' -TaskPath '\Ally\' -Confirm:$fal
 Get-CimInstance Win32_Process -Filter "Name = 'powershell.exe'" -ErrorAction SilentlyContinue |
   Where-Object CommandLine -match 'ally-pausa\.ps1' | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }
 Ok 'agente ally-pausa detenido y quitado'
+Unregister-ScheduledTask -TaskName 'Claude remoto' -TaskPath '\Ally\' -Confirm:$false -ErrorAction SilentlyContinue
+Ok 'arranque automático de Claude remoto quitado (el acceso directo se queda)'
 foreach ($d in $script:Respaldo.despertar) {
   powercfg /deviceenablewake "$d" 2>$null
   Ok "puede despertar otra vez: $d"

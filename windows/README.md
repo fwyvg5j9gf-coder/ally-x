@@ -16,7 +16,7 @@ doble clic.
 Desde PowerShell también puedes elegir qué correr:
 
 ```powershell
-.\instalar.ps1                          # recomendados (rendimiento, limpieza, suspension, handheld, claude)
+.\instalar.ps1                          # recomendados (rendimiento, limpieza, suspension, handheld, claude, remoto)
 .\instalar.ps1 -Apps                    # + Steam, Playnite y Heroic
 .\instalar.ps1 -Agresivo                # + apaga VBS / Memory Integrity
 .\instalar.ps1 -Modulos claude,apps     # solo esos módulos
@@ -80,14 +80,14 @@ regresar. Lo más seguro es pausar o ir al menú antes de suspender.
   ally\
   ├── CLAUDE.md          # Claude sabe qué equipo es, qué ya se ajustó y qué no tocar
   ├── .claude\commands\  # comandos propios (abajo)
-  ├── herramientas\      # ally-doctor, ally-pausa, arreglar-control, revertir
+  ├── herramientas\      # ally-doctor, ally-pausa, arreglar-control, claude-remoto, revertir
   ├── reportes\          # reportes HTML de batería y suspensión
   ├── logs\              # bitácora de cada instalación
   └── respaldo.json      # valores originales de todo lo que se cambió
   ```
 
 - Accesos en el menú inicio (carpeta **Ally**) y escritorio:
-  **Claude Code (Ally)** y **Ally Doctor**.
+  **Claude Code (Ally)**, **Claude remoto** y **Ally Doctor**.
 
 ### apps (opcional, `-Apps`)
 Steam, Playnite (frontend de pantalla completa para control, junta todas tus
@@ -120,6 +120,25 @@ botón de Command Center → teclado, o tocando cualquier campo de texto.
 
 La app **Claude** (de escritorio) sirve para platicar normal, sin acceso al
 sistema.
+
+## Claude remoto (desde tu celular)
+
+Usa Claude en el Ally sin tenerlo en la mano: abre **Claude remoto** (menú
+inicio → Ally, o escritorio) y en la app de Claude de tu celular entra a
+**Code** y elige la sesión del Ally. Desde ahí le pides lo mismo que en la
+pantalla: *"corre /diagnostico"*, *"¿cuánta batería tiene?"*,
+*"descarga e instala Discord"*.
+
+- La primera vez ábrelo a mano para iniciar sesión y aceptar el modo remoto.
+- Arranca solo (minimizado) cada vez que prendes el Ally y se reabre si se
+  cae. Si no lo quieres siempre: instala sin ese módulo
+  (`-Modulos rendimiento,limpieza,suspension,handheld,claude`) o borra la tarea
+  `\Ally\Claude remoto` en el Programador de tareas.
+- Corre **sin permisos de administrador**: desde fuera no puede cambiar el
+  sistema; esos ajustes te los deja listos para cuando tengas el Ally.
+- Solo responde con el Ally encendido y con internet. Suspendido no contesta
+  (a propósito: el módulo suspension evita que despierte solo).
+- Requiere plan Pro o Max de Claude, igual que Claude Code.
 
 ## deshacer
 

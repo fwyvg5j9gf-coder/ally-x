@@ -41,6 +41,7 @@ $descripcion = [ordered]@{
   suspension  = 'suspender y regresar al juego como Switch: sin despertares, hibernación de respaldo, agente ally-pausa'
   handheld    = 'teclado táctil, hibernación, revisa Armoury Crate, BIOS y drivers'
   claude      = 'app Claude, Claude Code, Windows Terminal, carpeta ~\ally con comandos'
+  remoto      = 'Claude remoto arranca solo al prender el Ally (para usarlo desde el celular)'
   apps        = 'Steam, Playnite y Heroic'
   agresivo    = 'apaga VBS / Memory Integrity (más FPS, menos protección)'
 }
@@ -55,7 +56,7 @@ if ($desconocidos) {
 }
 
 if (-not $Modulos) {
-  $Modulos = @('rendimiento', 'limpieza', 'suspension', 'handheld', 'claude')
+  $Modulos = @('rendimiento', 'limpieza', 'suspension', 'handheld', 'claude', 'remoto')
   if ($Apps)     { $Modulos += 'apps' }
   if ($Agresivo) { $Modulos += 'agresivo' }
 }
@@ -90,7 +91,7 @@ try {
   }
 }
 
-$orden = @{ rendimiento = 10; limpieza = 20; suspension = 25; handheld = 30; claude = 40; apps = 50; agresivo = 90 }
+$orden = @{ rendimiento = 10; limpieza = 20; suspension = 25; handheld = 30; claude = 40; remoto = 45; apps = 50; agresivo = 90 }
 foreach ($m in ($Modulos | Sort-Object { $orden[$_] })) {
   $archivo = Get-ChildItem (Join-Path $PSScriptRoot 'modulos') -Filter "*-$m.ps1" | Select-Object -First 1
   try {

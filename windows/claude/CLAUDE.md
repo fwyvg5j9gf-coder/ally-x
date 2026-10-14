@@ -53,6 +53,19 @@ No dupliques esos ajustes ni los propongas como novedad.
   `herramientas/arreglar-control.ps1`.
 - Para fallas de suspensión usa el comando `/suspension`.
 
+## sesión remota (desde el celular)
+
+- `herramientas/claude-remoto.ps1` abre `claude remote-control` en esta
+  carpeta; la tarea `\Ally\Claude remoto` (opcional) lo arranca al iniciar
+  sesión y lo reabre si se cae. Bitácora: `logs/remoto.log`.
+- Corre sin permisos de administrador. Si algo requiere admin, dilo y deja el
+  comando listo para cuando el usuario tenga el Ally en la mano.
+- Cuando el usuario escribe desde el celular no ve la pantalla del Ally:
+  respuestas cortas, resultados en texto, y no abras ventanas o apps gráficas
+  esperando que las vea.
+- No suspendas, reinicies ni apagues el equipo desde una sesión remota sin
+  que lo pida explícitamente: perdería el acceso hasta tener el Ally en la mano.
+
 ## problemas típicos del Ally y por dónde ir
 
 - **Controles no responden tras suspender**: MCU/BIOS desactualizados

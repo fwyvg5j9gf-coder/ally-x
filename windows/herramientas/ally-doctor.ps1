@@ -117,6 +117,8 @@ Write-Host 'revisando el Ally X...'
   powercfg /q SCHEME_CURRENT SUB_SLEEP HIBERNATEIDLE | Select-String 'Index' | ForEach-Object { "  $($_.Line.Trim())" }
   $tarea = Get-ScheduledTask -TaskName 'Ally Pausa' -TaskPath '\Ally\' -ErrorAction SilentlyContinue
   "agente ally-pausa: $(if ($tarea) { $tarea.State } else { 'no instalado' })"
+  $tareaRem = Get-ScheduledTask -TaskName 'Claude remoto' -TaskPath '\Ally\' -ErrorAction SilentlyContinue
+  "Claude remoto al iniciar: $(if ($tareaRem) { $tareaRem.State } else { 'no configurado' })"
   $pausaLog = Join-Path $ally 'logs\pausa.log'
   if (Test-Path $pausaLog) { "últimas líneas de pausa.log:"; Get-Content $pausaLog -Tail 30 | ForEach-Object { "  $_" } }
 

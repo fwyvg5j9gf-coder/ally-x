@@ -57,6 +57,11 @@ if ($wt) {
 foreach ($dir in $menu, $escritorio) {
   Nuevo-Acceso (Join-Path $dir 'Claude Code (Ally).lnk') $destino $argumentos $script:AllyDir "$claudeExe,0"
 }
+$remoto = Join-Path $herrDir 'claude-remoto.ps1'
+foreach ($dir in $menu, $escritorio) {
+  Nuevo-Acceso (Join-Path $dir 'Claude remoto.lnk') 'powershell.exe' `
+    "-NoProfile -ExecutionPolicy Bypass -File `"$remoto`"" $script:AllyDir "$claudeExe,0"
+}
 $doctor = Join-Path $herrDir 'ally-doctor.ps1'
 Nuevo-Acceso (Join-Path $menu 'Ally Doctor.lnk') 'powershell.exe' `
   "-NoProfile -ExecutionPolicy Bypass -File `"$doctor`" -Abrir" $script:AllyDir 'shell32.dll,23'
