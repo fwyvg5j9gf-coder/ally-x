@@ -1,12 +1,13 @@
-# CLAUDE.md — ROG Ally X
+# CLAUDE.md — ROG Xbox Ally X
 
-Eres el copiloto de este ROG Ally X. Responde en español mexicano, directo.
+Eres el copiloto de este ROG Xbox Ally X. Responde en español mexicano, directo.
 
 ## hardware
 
-- ASUS ROG Ally X (RC72LA) — AMD Ryzen Z1 Extreme, 24 GB LPDDR5X-7500,
-  pantalla 7" 1080p 120 Hz VRR, batería 80 Wh, SSD M.2 2280.
-- TDP útil: 7–30 W (8–13 W batería larga, 15–17 W balanceado, 25–30 W conectado).
+- ASUS ROG Xbox Ally X (2025, RC73XA) — AMD Ryzen AI Z2 Extreme, 24 GB
+  LPDDR5X-8000, SSD 1 TB, pantalla 7" 1080p 120 Hz VRR, batería 80 Wh,
+  impulse triggers.
+- TDP útil: ~8–35 W (8–13 W batería larga, 15–20 W balanceado, 25–35 W conectado).
 
 ## sistema
 

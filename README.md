@@ -1,4 +1,7 @@
-# ally-x — sistema para tu ROG Ally X con Claude integrado
+# ally-x — sistema para tu ROG Xbox Ally X con Claude integrado
+
+Hecho para el **ROG Xbox Ally X** (2025, RC73XA, Z2 Extreme, 24 GB). Casi todo
+aplica también al ROG Ally X 2024.
 
 Una versión por sistema operativo, cada una hecha a la medida:
 

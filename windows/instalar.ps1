@@ -109,7 +109,7 @@ Write-Host @'
 
 siguientes pasos
   1. reinicia el Ally X
-  2. Armoury Crate SE → Contenido → Update Center: BIOS, MCU y drivers al día
+  2. Armoury Crate SE → Update Center: BIOS, MCU y drivers al día
   3. abre "Claude" e inicia sesión; luego "Claude Code (Ally)" y también inicia sesión
   4. dentro de Claude Code prueba:  /diagnostico
 '@

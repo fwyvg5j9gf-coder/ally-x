@@ -11,7 +11,11 @@ $bios = Get-CimInstance Win32_BIOS
 $modelo = (Get-CimInstance Win32_ComputerSystem).Model
 Info "modelo: $modelo"
 Info "BIOS:   $($bios.SMBIOSBIOSVersion) ($('{0:yyyy-MM-dd}' -f $bios.ReleaseDate))"
-if ($modelo -notmatch 'RC72') { Aviso 'el modelo no parece Ally X (RC72LA); los ajustes aplican igual pero revisa' }
+if ($modelo -notmatch 'RC73X') { Aviso 'el modelo no parece ROG Xbox Ally X (RC73XA); los ajustes aplican igual pero revisa' }
+
+$ctl = Get-PnpDevice -PresentOnly -ErrorAction SilentlyContinue | Where-Object InstanceId -match '^USB\\VID_0B05&PID_(1B4C|1ABE)\\'
+if ($ctl) { Ok "control integrado detectado: $($ctl[0].InstanceId)" }
+else { Aviso 'no detecté el control integrado con los IDs conocidos; ally-pausa no podrá reiniciarlo. Corre Ally Doctor y pásale a Claude la sección "dispositivos ASUS"' }
 
 $gpu = Get-CimInstance Win32_VideoController | Where-Object Name -match 'AMD|Radeon' | Select-Object -First 1
 if ($gpu) {

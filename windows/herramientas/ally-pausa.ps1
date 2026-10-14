@@ -96,10 +96,12 @@ $noJuegos = @(
   'ArmouryCrate', 'ArmouryCrateSE', 'ArmourySocketServer', 'ROGLiveService',
   'steamwebhelper', 'Playnite.FullscreenApp', 'Playnite.DesktopApp',
   'WindowsTerminal', 'powershell', 'pwsh', 'conhost', 'claude', 'Claude',
-  'ApplicationFrameHost', 'TextInputHost', 'GameBar', 'XboxPcApp'
+  'ApplicationFrameHost', 'TextInputHost', 'GameBar', 'GameBarFTServer',
+  'XboxPcApp', 'XboxPcAppFT', 'XboxApp', 'gamingservices'
 )
 
-# Ally (1ABE) y Ally X (1B4C). Solo el dispositivo USB padre, no sus interfaces.
+# Control integrado: PID 1B4C (Ally X y Xbox Ally X) o 1ABE (Ally original).
+# Solo el dispositivo USB padre, no sus interfaces (&MI_xx).
 $patronControl = '^USB\\VID_0B05&PID_(1B4C|1ABE)\\'
 function Get-Control { Get-PnpDevice -PresentOnly -ErrorAction SilentlyContinue | Where-Object InstanceId -match $patronControl }
 

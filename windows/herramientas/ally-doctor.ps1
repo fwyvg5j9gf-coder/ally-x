@@ -72,6 +72,10 @@ Write-Host 'revisando el Ally X...'
   Get-AppxPackage -Name '*ArmouryCrate*' -ErrorAction SilentlyContinue | Select-Object Name, Version | Tabla
   Get-Service -Name '*Armoury*', 'ASUS*' -ErrorAction SilentlyContinue | Select-Object Name, Status, StartType | Tabla
 
+  Seccion 'dispositivos ASUS (control integrado = USB\VID_0B05&PID_1B4C)'
+  Get-PnpDevice -PresentOnly -ErrorAction SilentlyContinue | Where-Object InstanceId -match 'VID_0B05' |
+    Select-Object FriendlyName, Class, Status, InstanceId | Tabla
+
   Seccion 'dispositivos con problema'
   $malos = Get-PnpDevice -PresentOnly -ErrorAction SilentlyContinue | Where-Object Status -ne 'OK'
   if ($malos) { $malos | Select-Object FriendlyName, Class, Status, InstanceId | Tabla } else { 'ninguno' }

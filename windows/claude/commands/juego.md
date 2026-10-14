@@ -5,7 +5,7 @@ argument-hint: <nombre del juego> [batería|conectado] [meta de FPS]
 
 El usuario quiere jugar: **$ARGUMENTS**
 
-Dale una receta para el Ally X (Z1 Extreme, 1080p 120 Hz VRR, 24 GB):
+Dale una receta para el ROG Xbox Ally X (Z2 Extreme, 1080p 120 Hz VRR, 24 GB, hasta ~35 W conectado):
 
 1. **Armoury Crate**: modo (Silencioso / Rendimiento / Turbo o manual con W exactos), VRAM recomendada si aplica.
 2. **Pantalla**: resolución de render (1080p, 900p o 720p), límite de FPS y si conviene 120 Hz con VRR o fijar 60/40 Hz.

@@ -1,7 +1,7 @@
 # ally-x para Bazzite
 
 1. Descarga la imagen desde https://bazzite.gg eligiendo:
-   *Handheld/HTPC → ASUS ROG Ally X → GPU AMD* (imagen `bazzite-deck`).
+   *Handheld/HTPC → ASUS ROG Xbox Ally X → GPU AMD* (imagen `bazzite-deck`).
 2. Flashea a una USB con Fedora Media Writer, Ventoy o balenaEtcher.
 3. En el Ally X: apagado, mantén **Vol −** y presiona **Power** → elige la USB.
 4. Instala. Al terminar arranca en Modo Juego (como Steam Deck).

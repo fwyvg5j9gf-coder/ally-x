@@ -66,4 +66,4 @@ $doctor = Join-Path $herrDir 'ally-doctor.ps1'
 Nuevo-Acceso (Join-Path $menu 'Ally Doctor.lnk') 'powershell.exe' `
   "-NoProfile -ExecutionPolicy Bypass -File `"$doctor`" -Abrir" $script:AllyDir 'shell32.dll,23'
 Ok "en el menú inicio (carpeta Ally) y en el escritorio"
-Info 'para abrirlos con el control: Armoury Crate SE → Biblioteca → agregar, o Steam → Agregar juego que no es de Steam'
+Info 'en la pantalla completa de Xbox: mantén el botón Xbox → Escritorio para usarlos, o agrégalos a Steam como juego que no es de Steam'

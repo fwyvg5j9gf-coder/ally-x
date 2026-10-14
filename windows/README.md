@@ -1,6 +1,7 @@
 # ally-x para Windows 11
 
-Deja tu ROG Ally X con Windows 11 rápido, limpio y con Claude integrado como
+Deja tu **ROG Xbox Ally X** (2025, RC73XA, Z2 Extreme) con Windows 11 rápido,
+limpio y con Claude integrado como
 técnico de cabecera. Todo lo que cambia queda respaldado y se deshace con un
 doble clic.
 
@@ -98,7 +99,7 @@ Apaga VBS y Memory Integrity: 5–10 % más FPS en juegos limitados por CPU.
 **Cuidado:** reduce la protección contra malware de kernel, y algunos
 anti-cheat (Valorant, FACEIT) exigen que esté encendido.
 
-## Claude en el Ally X
+## Claude en el Ally
 
 Abre **Claude Code (Ally)** y usa los comandos:
 
@@ -114,9 +115,11 @@ O pregúntale normal: *"el control dejó de responder después de suspender"*,
 *"instálame Discord"*, *"¿por qué se calienta tanto con Hades?"*.
 Antes de cambiar algo te dice qué hace y cómo regresarlo.
 
-Para abrirlo con el control: Armoury Crate SE → Biblioteca → agregar el acceso,
-o Steam → *Agregar juego que no es de Steam*. Teclado en pantalla:
-botón de Command Center → teclado, o tocando cualquier campo de texto.
+**En la pantalla completa de Xbox:** Claude remoto y ally-pausa corren igual
+(arrancan solos). Para Claude Code o Ally Doctor ve al escritorio: mantén el
+botón **Xbox** → Escritorio. También puedes agregarlos a Steam como
+*juego que no es de Steam* para abrirlos con el control. Teclado en pantalla:
+botón Xbox → Game Bar → pestaña de ajustes (RB), o tocando un campo de texto.
 
 La app **Claude** (de escritorio) sirve para platicar normal, sin acceso al
 sistema.
@@ -154,5 +157,5 @@ Si algo sale muy mal: **Restaurar sistema** → punto "antes de ally-x".
    fuente correcta para el Ally; no uses drivers genéricos de AMD salvo que
    ASUS tenga meses sin publicar.
 2. **Modos**: Silencioso (~13 W) para indies y batería, Rendimiento (~17 W)
-   de diario, Turbo (25–30 W) solo conectado.
+   de diario, Turbo (hasta ~35 W) solo conectado; de 25 a 35 W casi no sube FPS.
 3. **Memoria**: VRAM en automático; si un juego pesado tironea, prueba 6–8 GB.

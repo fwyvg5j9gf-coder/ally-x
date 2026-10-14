@@ -1,6 +1,7 @@
 ﻿<#
 .SYNOPSIS
-  Reinicia el control integrado del Ally / Ally X sin reiniciar el equipo.
+  Reinicia el control integrado del ROG Xbox Ally X (también Ally / Ally X)
+  sin reiniciar el equipo.
   Úsalo cuando los botones dejan de responder (típico tras suspender).
 #>
 $admin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).
