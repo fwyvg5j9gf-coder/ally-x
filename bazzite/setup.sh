@@ -37,7 +37,7 @@ else
 fi
 
 say "contexto del dispositivo en $ALLY_DIR"
-cp "$KIT_DIR/claude/CLAUDE.md" "$ALLY_DIR/CLAUDE.md"
+cp "$KIT_DIR/bazzite/claude/CLAUDE.md" "$ALLY_DIR/CLAUDE.md"
 install -m 755 "$KIT_DIR/bazzite/ally-doctor.sh" "$BIN_DIR/ally-doctor"
 
 say "lanzadores (agrégalos a Steam con clic derecho → Add to Steam)"
